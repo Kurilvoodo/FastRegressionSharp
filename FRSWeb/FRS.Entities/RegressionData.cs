@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace FRS.Entities
 {
@@ -10,8 +6,9 @@ namespace FRS.Entities
     {
         public int UserId { get; set; }
         public int RegressionDataId { get; set; }
-        public double AFreeCoefficient { get; set; }
-        public double BCoefficientForX { get; set; }
+        public double ACoefficientForX { get; set; }
+        public double BFreeCoefficient { get; set; }
+        public double PrecisionError { get; set; }
         public List<double> XArgumentsFromRegressionAnalyze { get; set; }
         public List<double> YArgumentsFromRegressionAnalyze { get; set; }
     }

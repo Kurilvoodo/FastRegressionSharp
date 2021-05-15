@@ -1,12 +1,12 @@
-﻿
-namespace FRS.Entities
+﻿namespace FRS.Entities
 {
     public class CorrellationCoefficient
     {
         private double r;
+
         public double R
         {
-            get 
+            get
             {
                 return r;
             }
@@ -23,6 +23,7 @@ namespace FRS.Entities
                 r = value;
             }
         }
+
         public CorrelationFactor CorrelationFactor { get; set; }
     }
 }

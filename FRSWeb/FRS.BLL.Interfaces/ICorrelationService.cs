@@ -1,5 +1,4 @@
-﻿
-using FRS.Entities;
+﻿using FRS.Entities;
 using System.Collections.Generic;
 
 namespace FRS.BLL.Interfaces

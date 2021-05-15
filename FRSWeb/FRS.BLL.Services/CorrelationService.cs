@@ -3,7 +3,6 @@ using FRS.Entities;
 using System;
 using System.Collections.Generic;
 
-
 namespace FRS.BLL.Services
 {
     public class CorrelationService : ICorrelationService

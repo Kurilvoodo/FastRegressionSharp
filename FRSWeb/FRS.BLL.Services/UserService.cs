@@ -1,18 +1,18 @@
 ﻿using FRS.BLL.Interfaces;
 using FRS.DAL.Interfaces;
 using FRS.Entities;
-using System;
-
 
 namespace FRS.BLL.Services
 {
     public class UserService : IUserService
     {
         private IUserDao _userDao;
+
         public UserService(IUserDao userDao)
         {
             _userDao = userDao;
         }
+
         public int AddUser(User user)
         {
             return _userDao.AddUser(user);

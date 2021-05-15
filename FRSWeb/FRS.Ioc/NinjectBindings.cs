@@ -3,11 +3,6 @@ using FRS.BLL.Services;
 using FRS.DAL.Interfaces;
 using FRS.DAO;
 using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FRS.Ioc
 {

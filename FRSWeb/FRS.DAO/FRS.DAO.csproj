@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDao.cs" />
     <Compile Include="RegressionAnalyzeDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
