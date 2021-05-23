@@ -10,8 +10,13 @@ namespace FRS.BLL.Interfaces
 
         bool Login(User user);
 
-        int GetUserIdByUsername(string Username);
+        int GetUserIdByUsername(string username);
 
         User GetUserById(int id);
+
+        SubInfo GetSubInfo(int userId);
+        void AddSubInfo(int userId);
+
+        int ApiAuth(string accessKey, string secretAccessKey);
     }
 }

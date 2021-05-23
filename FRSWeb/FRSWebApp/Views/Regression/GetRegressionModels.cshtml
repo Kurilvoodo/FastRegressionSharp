@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FRS.Entities.RegressionData>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "GetRegressionModels";
+}
+
+<h2>GetRegressionModels</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RegressionDataId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ACoefficientForX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BFreeCoefficient)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrecisionError)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RegressionDataId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACoefficientForX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BFreeCoefficient)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecisionError)
+        </td>
+        <td>
+            @Html.ActionLink("CountForecast", "CountForecast", "Regression", new { regressionModelId = item.RegressionDataId})
+        </td>
+    </tr>
+}
+
+</table>

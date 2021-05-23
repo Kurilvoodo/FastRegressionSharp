@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to Fast Regression Serivce Web Application!</h2>
+<p>@Html.ActionLink("Make a quick count", "QuickRegression", "Regression")</p>
+@if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+    @Html.Action("ShowLinksForAuthUser", "User")
+}
+
+

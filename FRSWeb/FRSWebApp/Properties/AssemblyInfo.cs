@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // Управление общими сведениями о сборке осуществляется с помощью 
 // набора атрибутов. Измените значения этих атрибутов для изменения сведений,
 // связанных с этой сборкой.
-[assembly: AssemblyTitle("FRSWeb")]
+[assembly: AssemblyTitle("FRSWebApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("FRSWeb")]
+[assembly: AssemblyProduct("FRSWebApp")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Следующий GUID служит для идентификации библиотеки типов typelib, если этот проект видим для COM
-[assembly: Guid("c866867d-b2a1-4e6b-b3a2-ddca26c3f527")]
+[assembly: Guid("0deaccd5-f515-4209-b69e-0db7606daba8")]
 
 // Сведения о версии сборки состоят из указанных ниже четырех значений:
 //

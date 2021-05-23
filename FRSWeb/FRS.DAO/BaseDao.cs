@@ -5,8 +5,7 @@ namespace FRS.DAO
 {
     public class BaseDao
     {
-        public string _connectionString = @"Data Source=DESKTOP-QALPV5U\SQLEXPRESS;Initial Catalog=ShareMate;Integrated Security=True";
-        //TODO: Change connection string
+        public string _connectionString = @"Data Source=DESKTOP-QALPV5U\SQLEXPRESS;Initial Catalog=FRSData;Integrated Security=True";
 
         public SqlParameter GetParameter(string parameterName, object value, DbType mytype)
         {

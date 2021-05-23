@@ -1,0 +1,39 @@
+﻿@model FRS.Entities.SubInfo
+
+@{
+    ViewBag.Title = "SubInfo";
+}
+
+<h2>SubInfo</h2>
+
+<div>
+    <h4>SubInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecretAccessKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecretAccessKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccessKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccessKey)
+        </dd>
+
+    </dl>
+</div>
+

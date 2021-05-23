@@ -1,0 +1,13 @@
+﻿@using Ninject
+@using FRS.Ioc
+@using FRS.BLL.Interfaces
+@{
+    ViewBag.Title = "Subscription";
+    var userLogic = NinjaDependencyResolver.Kernel.Get<IUserService>();
+    int userId = userLogic.GetUserIdByUsername(User.Identity.Name);
+}
+
+<h2>Subscription</h2>
+
+<button type="submit"> @Html.ActionLink("Purchase for 2$", "Subscription", "User", new { userId = userId}, null )</button>
+

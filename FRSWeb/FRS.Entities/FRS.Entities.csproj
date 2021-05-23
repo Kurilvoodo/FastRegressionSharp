@@ -43,9 +43,12 @@
   <ItemGroup>
     <Compile Include="CorrelationFactor.cs" />
     <Compile Include="CorrelationCoefficient.cs" />
+    <Compile Include="FRSClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuickRegression.cs" />
     <Compile Include="RegressionData.cs" />
     <Compile Include="RegressionModel.cs" />
+    <Compile Include="SubInfo.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

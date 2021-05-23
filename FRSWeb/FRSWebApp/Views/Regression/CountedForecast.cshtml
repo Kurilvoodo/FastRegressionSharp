@@ -1,0 +1,60 @@
+﻿@model FRSWebApp.Models.Regression.ForeCastModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "CountedForecast";
+}
+
+<h2>CountedForecast</h2>
+
+<div>
+    <h4>ForeCastModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ACoefficientForX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACoefficientForX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BFreeCoefficient)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BFreeCoefficient)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XRegressiontCounting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XRegressiontCounting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.YRegressionResult)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.YRegressionResult)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correllation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correllation.R)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("save to my regression model", "SaveToMyRegressionModel", "Regression",new { regressionModelId = Model.RegressionDataId } )
+    @Html.ActionLink("Back to List", "GetRegressionModels", new { userId = Model.UserId })
+</p>

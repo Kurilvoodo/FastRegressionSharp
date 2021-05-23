@@ -7,6 +7,19 @@ namespace FRS.DAO
 {
     public class UserDao : BaseDao, IUserDao
     {
+        public void AddSubInfo(SubInfo subInfo)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = GetCommand(connection, "dbo.AddSubInfo");
+                AddParameter(GetParameter("@UserId", subInfo.UserId, DbType.Int32), command);
+                AddParameter(GetParameter("@AccessKey", subInfo.AccessKey, DbType.String), command);
+                AddParameter(GetParameter("@SecretAccessKey", subInfo.SecretAccessKey, DbType.String), command);
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
         public int AddUser(User user)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -20,6 +33,25 @@ namespace FRS.DAO
             }
         }
 
+        public int ApiAuth(string accessKey, string secretAccessKey)
+        {
+            using (var connection =  new SqlConnection(_connectionString))
+            {
+                SqlCommand command = GetCommand(connection, "dbo.ApiAuth");
+                AddParameter(GetParameter("@AccessKey", accessKey, DbType.String),command);
+                AddParameter(GetParameter("@SecretAccessKey", secretAccessKey, DbType.String),command);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                int userId = 0;
+                while (reader.Read())
+                {
+                    userId = (int)reader["UserId"];
+                }
+                return userId;
+            }
+
+        }
+
         public void DeleteUserById(int userId)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -28,6 +60,28 @@ namespace FRS.DAO
                 AddParameter(GetParameter("@ID", userId, DbType.Int32), command);
                 connection.Open();
                 command.ExecuteNonQuery();
+            }
+        }
+
+        public SubInfo GetSubInfo(int userId)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = GetCommand(connection, "dbo.GetSubInfo");
+                AddParameter(GetParameter("@UserId", userId, DbType.Int32), command);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                SubInfo subInfo = null;
+                while (reader.Read())
+                {
+                    subInfo = new SubInfo()
+                    {
+                        UserId = (int)reader["UserId"],
+                        AccessKey = reader["AccessKey"] as string,
+                        SecretAccessKey = reader["SecretAccessKey"] as string
+                    };
+                }
+                return subInfo;
             }
         }
 
@@ -55,7 +109,7 @@ namespace FRS.DAO
         {
             using (var connection = new SqlConnection(_connectionString))
             {
-                SqlCommand command = GetCommand(connection, "dbo.GetIdByUsername");
+                SqlCommand command = GetCommand(connection, "dbo.GetUserByUsername");
                 AddParameter(GetParameter("@Username", username, DbType.String), command);
                 connection.Open();
                 return (int)command.ExecuteScalar();
