@@ -97,15 +97,16 @@ namespace FRSWebApp.Controllers
             return RedirectToAction("GetRegressionModels", "Regression", foreCastModel.UserId);
         }
         [AllowAnonymous]
-        public ActionResult QuickRegression()
+        public ActionResult QuickLineRegression()
         {
             return View();
         }
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult QuickRegression(QuickRegression quickRegression)
+        public ActionResult QuickLineRegressionAnswer(QuickRegression quickRegression)
         {
+            quickRegression.FunctionType = FunctionType.SimpleLine;
             List<double> xData = new List<double>();
             List<double> yData = new List<double>();
             foreach (var item in quickRegression.XArgs.Split(' '))
@@ -126,7 +127,10 @@ namespace FRSWebApp.Controllers
 
             var regressionModel = _regressionService.CalculateRegression(regressionData);
             var modelWithAnswer = _regressionService.CountForecast(double.Parse(quickRegression.X), regressionModel);
-            return View(modelWithAnswer);
+            quickRegression.aAnswer = modelWithAnswer.ACoefficientForX;
+            quickRegression.bAnswer = modelWithAnswer.BFreeCoefficient;
+            quickRegression.yAnswer = modelWithAnswer.YRegressionResult;
+            return View(quickRegression);
         }
     }
 }

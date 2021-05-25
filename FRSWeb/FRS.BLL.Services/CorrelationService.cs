@@ -26,7 +26,7 @@ namespace FRS.BLL.Services
             xSampleVariance /= CountOfDigitsInData;
             ySampleVariance /= CountOfDigitsInData;
 
-            double r = upperNumerator / (Math.Sqrt(xSampleVariance) - Math.Sqrt(ySampleVariance));
+            double r = upperNumerator / (Math.Sqrt(xSampleVariance) * Math.Sqrt(ySampleVariance));
 
             return new CorrellationCoefficient()
             {

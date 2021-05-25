@@ -130,7 +130,7 @@ namespace FRS.BLL.Services
             for (int i = 0; i < n; i++)
             {
                 summOfKnownArguments += xRef[i] * yRef[i];             //due to optimization this operations
-                summOfSquareSampleMeanOfX += Math.Pow(xSampleMean, 2); //could be pocessed in the same cycle
+                summOfSquareSampleMeanOfX += Math.Pow(xRef[i], 2); //could be pocessed in the same cycle
             }
 
             #endregion Summ(X[i]*Y[i]) and Summ(SampleMean(X[0-n])^2)
