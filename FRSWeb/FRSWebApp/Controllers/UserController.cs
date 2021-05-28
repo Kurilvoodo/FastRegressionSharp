@@ -15,6 +15,7 @@ namespace FRSWebApp.Controllers
         {
             _userService = userService;
         }
+
         // GET: User
         [AllowAnonymous]
         public ActionResult Login()
@@ -35,7 +36,7 @@ namespace FRSWebApp.Controllers
                     Password = Utils.HashUtils.ComputeHash(signInLoginVM.Password)
                 };
 
-                if (_userService.Login(new User() 
+                if (_userService.Login(new User()
                 {
                     Username = hashedLoginVM.Username,
                     HashPassword = hashedLoginVM.Password
@@ -43,9 +44,8 @@ namespace FRSWebApp.Controllers
                 {
                     FormsAuthentication.SetAuthCookie(signInLoginVM.Username, true);
 
-                    return RedirectToAction("Index", "PrintEdition");
+                    return RedirectToAction("Index", "Home");
                 }
-
             }
             return View();
         }
@@ -71,7 +71,7 @@ namespace FRSWebApp.Controllers
                         Password = Utils.HashUtils.ComputeHash(createLoginVM.Password)
                     };
 
-                    _userService.AddUser(new User(){ Username = hashedLoginVM.Username, HashPassword = hashedLoginVM.Password });
+                    _userService.AddUser(new User() { Username = hashedLoginVM.Username, HashPassword = hashedLoginVM.Password });
                     return RedirectToAction("Login", "Account");
                 }
                 catch (Exception ex)
@@ -95,6 +95,7 @@ namespace FRSWebApp.Controllers
         {
             return View();
         }
+
         [ChildActionOnly]
         public ActionResult ShowLinksForAuthUser()
         {
@@ -106,6 +107,7 @@ namespace FRSWebApp.Controllers
         {
             return View();
         }
+
         [Authorize]
         public ActionResult Subscription(int userId)
         {

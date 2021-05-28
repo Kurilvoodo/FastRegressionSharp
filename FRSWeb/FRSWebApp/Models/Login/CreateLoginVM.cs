@@ -22,6 +22,5 @@ namespace FRSWebApp.Models.Login
         [MaxLength(50)]
         [Compare(nameof(Password))]
         public string ConfirmPassword { get; set; }
-
     }
 }

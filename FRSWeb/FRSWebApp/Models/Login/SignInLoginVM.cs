@@ -14,6 +14,5 @@ namespace FRSWebApp.Models.Login
         [MaxLength(50)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
     }
 }

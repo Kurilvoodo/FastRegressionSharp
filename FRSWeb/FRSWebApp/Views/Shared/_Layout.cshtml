@@ -21,30 +21,29 @@
                     <span class="icon-bar"></span>
                 </button>
                 @Html.ActionLink("Fast Regression Service", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @if (User.Identity.IsAuthenticated)
+                {
+                <li>
+                    @User.Identity.Name
+                </li>
+                <li>
+                    @{ var userLogic = NinjaDependencyResolver.Kernel.Get<IUserService>();
+                            int userId = userLogic.GetUserIdByUsername(User.Identity.Name); }
+                    @Html.ActionLink("Logout", "Logout", "User")
+                </li>
+                }
+                else
+                {
+                <li>
+                    @Html.ActionLink("Register", "Register", "User")
+                </li>
+                <li>
+                    @Html.ActionLink("Login", "Login", "user")
+                </li>
+                }
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li>
-                            @User.Identity.Name
-                        </li>
-                        <li>
-                            @{ var userLogic = NinjaDependencyResolver.Kernel.Get<IUserService>();
-                                int userId = userLogic.GetUserIdByUsername(User.Identity.Name); }
-                            @Html.ActionLink("Logout", "Logout", "Account")
-                        </li>
-                    }
-                    else
-                    {
-                        <li>
-                            @Html.ActionLink("Register", "Register", "Account")
-                        </li>
-                        <li>
-                            @Html.ActionLink("Login", "Login", "Account")
-                        </li>
-                    }
-
                 </ul>
             </div>
         </div>

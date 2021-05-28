@@ -1,22 +1,45 @@
 ﻿@model FRS.Entities.QuickRegression
 
 @{
-    ViewBag.Title = "QuickLineRegressionAnswer";
+    ViewBag.Title = "QuickSedateRegressionAnswer";
 }
 
-<h2>QuickLineRegressionAnswer</h2>
+<h2>QuickSedateRegressionAnswer</h2>
 
 <div>
     <h4>QuickRegression</h4>
     <hr />
     <dl class="dl-horizontal">
-
         <dt>
             @Html.DisplayNameFor(model => model.X)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.X)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yAnswer)
         </dd>
 
         <dt>

@@ -1,4 +1,4 @@
-﻿namespace FRS.Entities
+﻿namespace FRSApiClient
 {
     public enum FunctionType
     {

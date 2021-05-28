@@ -13,38 +13,28 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.RegressionDataId)
+            @Html.DisplayNameFor(model => model.FunctionType)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ACoefficientForX)
+            @Html.DisplayNameFor(model => model.Format)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BFreeCoefficient)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PrecisionError)
-        </th>
+
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegressionDataId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ACoefficientForX)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BFreeCoefficient)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PrecisionError)
-        </td>
-        <td>
-            @Html.ActionLink("CountForecast", "CountForecast", "Regression", new { regressionModelId = item.RegressionDataId})
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FunctionType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Format)
+            </td>
 
+            <td>
+                @Html.ActionLink("CountForecast", "CountForecast", "Regression", new { regressionModelId = item.RegressionDataId }, null)
+            </td>
+        </tr>
+    }
 </table>

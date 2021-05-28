@@ -50,9 +50,9 @@ namespace FRS.BLL.Services
                 ACoefficientForX = data.ACoefficientForX,
                 BFreeCoefficient = data.BFreeCoefficient,
                 XRegressiontCounting = xArg,
-                YRegressionResult = result
+                YRegressionResult = result,
+                FunctionType = data.FunctionType
             };
-            throw new NotImplementedException();
         }
 
         public RegressionModel CountMultipleForecast(List<double> xArgs, RegressionData data)

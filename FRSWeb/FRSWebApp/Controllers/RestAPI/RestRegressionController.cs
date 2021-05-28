@@ -1,13 +1,7 @@
-﻿using FRSWebApp.Models.Regression;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using FRSWebApp.App_Start;
+﻿using FRS.BLL.Interfaces;
 using FRS.Entities;
-using FRS.BLL.Interfaces;
+using System;
+using System.Web.Http;
 
 namespace FRSWebApp.Controllers.RestAPI
 {
@@ -15,6 +9,7 @@ namespace FRSWebApp.Controllers.RestAPI
     {
         private IUserService _userService;
         private IRegressionAnalyzeService _regressionAnalyzeService;
+
         public RestRegressionController(IUserService userService, IRegressionAnalyzeService regressionAnalyzeService)
         {
             _userService = userService;
@@ -42,6 +37,7 @@ namespace FRSWebApp.Controllers.RestAPI
                 return BadRequest();
             }
         }
+
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("~/api/GetRegressionModels")]
         public IHttpActionResult GetRegressionModels(FRSClient frsClient)
@@ -62,6 +58,7 @@ namespace FRSWebApp.Controllers.RestAPI
                 return BadRequest();
             }
         }
+
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("~/api/CountForecast")]
         public IHttpActionResult CountForecast(FRSClient fRSClient)
@@ -78,8 +75,8 @@ namespace FRSWebApp.Controllers.RestAPI
                 if (fRSClient.regressionData != null)
                 {
                     var data = _regressionAnalyzeService.GetRegressionDataById(fRSClient.regressionData.RegressionDataId);
-
-                    return Ok(_regressionAnalyzeService.CountForecast(fRSClient.X, data));
+                    fRSClient.regressionModel = _regressionAnalyzeService.CountForecast(fRSClient.X, data);
+                    return Ok(fRSClient);
                 }
                 else
                 {
@@ -91,6 +88,7 @@ namespace FRSWebApp.Controllers.RestAPI
                 return BadRequest();
             }
         }
+
         [System.Web.Http.HttpPost]
         [System.Web.Http.Route("~/api/SaveToMyRegressionModel")]
         public IHttpActionResult SaveToMyRegressionModel(FRSClient frsClient)

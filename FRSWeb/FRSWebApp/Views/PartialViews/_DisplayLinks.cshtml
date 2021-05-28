@@ -5,7 +5,7 @@
 <p>
     @{ var userLogic = NinjaDependencyResolver.Kernel.Get<IUserService>();
         int userId = userLogic.GetUserIdByUsername(User.Identity.Name); }
-    @Html.ActionLink("My Regression Models", "GetRegressionModels", "Regression", new { userId = userId });
+    @Html.ActionLink("My Regression Models", "GetRegressionModels", "Regression", new { userId = userId }, null);
     @Html.ActionLink("New Regression Model", "Create", "Regression");
     @Html.ActionLink("Subscription for API", "Subscription", "User");
 </p>

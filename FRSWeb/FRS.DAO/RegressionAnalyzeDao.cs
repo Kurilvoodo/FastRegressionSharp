@@ -17,9 +17,9 @@ namespace FRS.DAO
                 AddParameter(GetParameter("@RegressionOwnerId", data.UserId, DbType.Int32), command);
                 AddParameter(GetParameter("@ACoeff", data.ACoefficientForX, DbType.Decimal), command);
                 AddParameter(GetParameter("@BCoeff", data.BFreeCoefficient, DbType.Decimal), command);
+                AddParameter(GetParameter("@FunctionType", (int)data.FunctionType, DbType.Int32), command);
                 connection.Open();
-                var dataId = command.ExecuteScalar();
-                return (int)dataId;
+                return int.Parse(command.ExecuteScalar().ToString());
             }
         }
 
@@ -36,11 +36,12 @@ namespace FRS.DAO
                 {
                     regressionData = new RegressionData()
                     {
-                        ACoefficientForX = (double)reader["ACoeff"],
-                        BFreeCoefficient = (double)reader["BCoeff"],
+                        ACoefficientForX = (double)(decimal)reader["ACoeff"],
+                        BFreeCoefficient = (double)(decimal)reader["BCoeff"],
                         UserId = (int)reader["RegressionOwnerId"],
                         RegressionDataId = (int)reader["Id"],
-                        PrecisionError = (int)reader["PrecisionError"]
+                        //PrecisionError = (int)reader["PrecisionError"],
+                        FunctionType = (FunctionType)(int)reader["FunctionType"]
                     };
                 }
                 return regressionData;
@@ -54,17 +55,16 @@ namespace FRS.DAO
                 SqlCommand command = GetCommand(connection, "dbo.GetRegressionDataByUserId");
                 AddParameter(GetParameter("@UserId", userId, DbType.Int32), command);
                 connection.Open();
-                List<RegressionData> regressionDataList = null;
+                List<RegressionData> regressionDataList = new List<RegressionData>();
                 var reader = command.ExecuteReader();
                 while (reader.Read())
                 {
                     regressionDataList.Add(new RegressionData()
                     {
-                        ACoefficientForX = (double)reader["ACoeff"],
-                        BFreeCoefficient = (double)reader["BCoeff"],
+                        ACoefficientForX = (double)(decimal)reader["ACoeff"],
+                        BFreeCoefficient = (double)(decimal)reader["BCoeff"],
                         UserId = (int)reader["RegressionOwnerId"],
-                        RegressionDataId = (int)reader["Id"],
-                        PrecisionError = (int)reader["PrecisionError"]
+                        RegressionDataId = (int)reader["Id"]
                     });
                 }
                 return regressionDataList;

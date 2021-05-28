@@ -35,11 +35,11 @@ namespace FRS.DAO
 
         public int ApiAuth(string accessKey, string secretAccessKey)
         {
-            using (var connection =  new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = GetCommand(connection, "dbo.ApiAuth");
-                AddParameter(GetParameter("@AccessKey", accessKey, DbType.String),command);
-                AddParameter(GetParameter("@SecretAccessKey", secretAccessKey, DbType.String),command);
+                AddParameter(GetParameter("@AccessKey", accessKey, DbType.String), command);
+                AddParameter(GetParameter("@SecretAccessKey", secretAccessKey, DbType.String), command);
                 connection.Open();
                 var reader = command.ExecuteReader();
                 int userId = 0;
@@ -49,7 +49,6 @@ namespace FRS.DAO
                 }
                 return userId;
             }
-
         }
 
         public void DeleteUserById(int userId)

@@ -15,6 +15,7 @@ namespace FRS.BLL.Interfaces
         User GetUserById(int id);
 
         SubInfo GetSubInfo(int userId);
+
         void AddSubInfo(int userId);
 
         int ApiAuth(string accessKey, string secretAccessKey);

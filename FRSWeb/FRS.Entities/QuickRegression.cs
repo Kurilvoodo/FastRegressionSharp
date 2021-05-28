@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FRS.Entities
+﻿namespace FRS.Entities
 {
     public class QuickRegression
     {
@@ -19,18 +13,22 @@ namespace FRS.Entities
 
         public string Format
         {
-            get 
+            get
             {
                 switch (FunctionType)
                 {
                     case FunctionType.SimpleLine:
                         return $"y = {aAnswer}*x + {bAnswer}";
+
                     case FunctionType.Exponential:
                         return $"ln(y) = {bAnswer} + {aAnswer}*x -> y = e^{bAnswer} * e^({aAnswer}*x)";
+
                     case FunctionType.Logarithmic:
                         return $"y = {bAnswer} + {aAnswer}*ln(x)";
+
                     case FunctionType.Sedate:
                         return $"ln(y) = {bAnswer} + {aAnswer}*ln(x) -> y = e^{bAnswer} * x^{aAnswer}";
+
                     default:
                         return $"Function type wasn't provided";
                 }

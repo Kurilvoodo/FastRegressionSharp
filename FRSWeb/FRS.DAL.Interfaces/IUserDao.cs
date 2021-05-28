@@ -15,7 +15,9 @@ namespace FRS.DAL.Interfaces
         User GetUserById(int id);
 
         void AddSubInfo(SubInfo subInfo);
+
         SubInfo GetSubInfo(int userId);
+
         int ApiAuth(string accessKey, string secretAccessKey);
     }
 }

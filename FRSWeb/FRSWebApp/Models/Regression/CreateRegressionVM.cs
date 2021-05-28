@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace FRSWebApp.Models.Regression
 {
@@ -10,6 +6,7 @@ namespace FRSWebApp.Models.Regression
     {
         [Required]
         public string XData { get; set; }
+
         [Required]
         public string YData { get; set; }
 

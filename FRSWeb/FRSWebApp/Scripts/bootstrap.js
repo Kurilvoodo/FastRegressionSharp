@@ -99,7 +99,6 @@
 
       return [];
     }
-
   };
 
   /**
@@ -126,7 +125,6 @@
    * --------------------------------------------------------------------------
    */
 
-
   const getUID = prefix => {
     do {
       prefix += Math.floor(Math.random() * MAX_UID);
@@ -147,7 +145,6 @@
       if (!hrefAttr || !hrefAttr.includes('#') && !hrefAttr.startsWith('.')) {
         return null;
       } // Just in case some CMS puts out a full URL with the anchor appended
-
 
       if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
         hrefAttr = `#${hrefAttr.split('#')[1]}`;
@@ -179,7 +176,6 @@
       return 0;
     } // Get transition-duration of the element
 
-
     let {
       transitionDuration,
       transitionDelay
@@ -190,7 +186,6 @@
     if (!floatTransitionDuration && !floatTransitionDelay) {
       return 0;
     } // If multiple durations are defined, take the first
-
 
     transitionDuration = transitionDuration.split(',')[0];
     transitionDelay = transitionDelay.split(',')[0];
@@ -291,7 +286,6 @@
       return null;
     } // Can find the shadow root otherwise it'll return the document
 
-
     if (typeof element.getRootNode === 'function') {
       const root = element.getRootNode();
       return root instanceof ShadowRoot ? root : null;
@@ -300,7 +294,6 @@
     if (element instanceof ShadowRoot) {
       return element;
     } // when we don't find a shadow root
-
 
     if (!element.parentNode) {
       return null;
@@ -411,7 +404,6 @@
         elementMap.delete(element);
       }
     }
-
   };
 
   /**
@@ -488,7 +480,6 @@
         }
       } // To please ESLint
 
-
       return null;
     };
   }
@@ -530,7 +521,6 @@
       delegationFn = null;
     } // in case of mouseenter or mouseleave wrap the handler within a function that checks for its DOM position
     // this prevents the handler from being dispatched the same way as mouseover or mouseout does
-
 
     if (customEventsRegex.test(originalTypeEvent)) {
       const wrapFn = fn => {
@@ -674,14 +664,12 @@
         });
       } // merge custom information in our event
 
-
       if (typeof args !== 'undefined') {
         Object.keys(args).forEach(key => {
           Object.defineProperty(evt, key, {
             get() {
               return args[key];
             }
-
           });
         });
       }
@@ -700,7 +688,6 @@
 
       return evt;
     }
-
   };
 
   /**
@@ -749,7 +736,6 @@
     }
     /** Static */
 
-
     static getInstance(element) {
       return Data.get(element, this.DATA_KEY);
     }
@@ -769,7 +755,6 @@
     static get EVENT_KEY() {
       return `.${this.DATA_KEY}`;
     }
-
   }
 
   /**
@@ -807,7 +792,6 @@
       return NAME$c;
     } // Public
 
-
     close(element) {
       const rootElement = element ? this._getRootElement(element) : this._element;
 
@@ -819,7 +803,6 @@
 
       this._removeElement(rootElement);
     } // Private
-
 
     _getRootElement(element) {
       return getElementFromSelector(element) || element.closest(`.${CLASS_NAME_ALERT}`);
@@ -844,7 +827,6 @@
       EventHandler.trigger(element, EVENT_CLOSED);
     } // Static
 
-
     static jQueryInterface(config) {
       return this.each(function () {
         let data = Data.get(this, DATA_KEY$b);
@@ -868,14 +850,12 @@
         alertInstance.close(this);
       };
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API$7, SELECTOR_DISMISS, Alert.handleDismiss(new Alert()));
   /**
@@ -918,12 +898,10 @@
       return NAME$b;
     } // Public
 
-
     toggle() {
       // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
       this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$3));
     } // Static
-
 
     static jQueryInterface(config) {
       return this.each(function () {
@@ -938,14 +916,12 @@
         }
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$5, event => {
     event.preventDefault();
@@ -1038,7 +1014,6 @@
         left: element.offsetLeft
       };
     }
-
   };
 
   /**
@@ -1139,7 +1114,6 @@
       this._addEventListeners();
     } // Getters
 
-
     static get Default() {
       return Default$9;
     }
@@ -1147,7 +1121,6 @@
     static get NAME() {
       return NAME$a;
     } // Public
-
 
     next() {
       if (!this._isSliding) {
@@ -1224,7 +1197,6 @@
 
       this._slide(order, this._items[index]);
     } // Private
-
 
     _getConfig(config) {
       config = { ...Default$9,
@@ -1511,7 +1483,6 @@
       return order === ORDER_PREV ? DIRECTION_RIGHT : DIRECTION_LEFT;
     } // Static
 
-
     static carouselInterface(element, config) {
       let data = Data.get(element, DATA_KEY$9);
       let _config = { ...Default$9,
@@ -1574,14 +1545,12 @@
 
       event.preventDefault();
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_SLIDE, Carousel.dataApiClickHandler);
   EventHandler.on(window, EVENT_LOAD_DATA_API$2, () => {
@@ -1674,7 +1643,6 @@
       }
     } // Getters
 
-
     static get Default() {
       return Default$8;
     }
@@ -1682,7 +1650,6 @@
     static get NAME() {
       return NAME$9;
     } // Public
-
 
     toggle() {
       if (this._element.classList.contains(CLASS_NAME_SHOW$8)) {
@@ -1833,7 +1800,6 @@
       this._isTransitioning = isTransitioning;
     } // Private
 
-
     _getConfig(config) {
       config = { ...Default$8,
         ...config
@@ -1879,7 +1845,6 @@
       });
     } // Static
 
-
     static collapseInterface(element, config) {
       let data = Data.get(element, DATA_KEY$8);
       const _config = { ...Default$8,
@@ -1909,14 +1874,12 @@
         Collapse.collapseInterface(this, config);
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$4, function (event) {
     // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
@@ -2035,7 +1998,6 @@
       this._addEventListeners();
     } // Getters
 
-
     static get Default() {
       return Default$7;
     }
@@ -2047,7 +2009,6 @@
     static get NAME() {
       return NAME$8;
     } // Public
-
 
     toggle() {
       if (isDisabled(this._element)) {
@@ -2079,7 +2040,6 @@
         return;
       } // Totally disable Popper for Dropdowns in Navbar
 
-
       if (this._inNavbar) {
         Manipulator.setDataAttribute(this._menu, 'popper', 'none');
       } else {
@@ -2109,7 +2069,6 @@
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
-
 
       if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
         [].concat(...document.body.children).forEach(elem => EventHandler.on(elem, 'mouseover', noop));
@@ -2154,7 +2113,6 @@
       }
     } // Private
 
-
     _addEventListeners() {
       EventHandler.on(this._element, EVENT_CLICK, event => {
         event.preventDefault();
@@ -2169,7 +2127,6 @@
         return;
       } // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
-
 
       if ('ontouchstart' in document.documentElement) {
         [].concat(...document.body.children).forEach(elem => EventHandler.off(elem, 'mouseover', noop));
@@ -2218,7 +2175,6 @@
       if (parentDropdown.classList.contains(CLASS_NAME_DROPSTART)) {
         return PLACEMENT_LEFT;
       } // We need to trim the value because custom properties can also include spaces
-
 
       const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
 
@@ -2290,16 +2246,13 @@
         index--;
       } // Down
 
-
       if (event.key === ARROW_DOWN_KEY && index < items.length - 1) {
         index++;
       } // index is -1 if the first keydown is an ArrowUp
 
-
       index = index === -1 ? 0 : index;
       items[index].focus();
     } // Static
-
 
     static dropdownInterface(element, config) {
       let data = Data.get(element, DATA_KEY$7);
@@ -2354,7 +2307,6 @@
           if (composedPath.includes(context._element) || context._config.autoClose === 'inside' && !isMenuTarget || context._config.autoClose === 'outside' && isMenuTarget) {
             continue;
           } // Tab navigation through the dropdown menu or events from contained inputs shouldn't close the menu
-
 
           if (context._menu.contains(event.target) && (event.type === 'keyup' && event.key === TAB_KEY || /input|select|option|textarea|form/i.test(event.target.tagName))) {
             continue;
@@ -2418,14 +2370,12 @@
 
       Dropdown.getInstance(getToggleButton())._selectMenuItem(event);
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$3, Dropdown.dataApiKeydownHandler);
   EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
@@ -2462,9 +2412,7 @@
   const hide = (width = getWidth()) => {
     _disableOverFlow(); // give padding to element to balances the hidden scrollbar width
 
-
     _setElementAttributes('body', 'paddingRight', calculatedValue => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements, to keep shown fullwidth
-
 
     _setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedValue => calculatedValue + width);
 
@@ -2584,7 +2532,6 @@
       });
     } // Private
 
-
     _getElement() {
       if (!this._element) {
         const backdrop = document.createElement('div');
@@ -2644,7 +2591,6 @@
       EventHandler.one(this._getElement(), 'transitionend', () => execute(callback));
       emulateTransitionEnd(this._getElement(), backdropTransitionDuration);
     }
-
   }
 
   /**
@@ -2711,7 +2657,6 @@
       this._isTransitioning = false;
     } // Getters
 
-
     static get Default() {
       return Default$5;
     }
@@ -2719,7 +2664,6 @@
     static get NAME() {
       return NAME$6;
     } // Public
-
 
     toggle(relatedTarget) {
       return this._isShown ? this.hide() : this.show(relatedTarget);
@@ -2819,7 +2763,6 @@
     handleUpdate() {
       this._adjustDialog();
     } // Private
-
 
     _initializeBackDrop() {
       return new Backdrop({
@@ -2999,7 +2942,6 @@
     // the following methods are used to handle overflowing modals
     // ----------------------------------------------------------------------
 
-
     _adjustDialog() {
       const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
       const scrollbarWidth = getWidth();
@@ -3019,7 +2961,6 @@
       this._element.style.paddingRight = '';
     } // Static
 
-
     static jQueryInterface(config, relatedTarget) {
       return this.each(function () {
         const data = Modal.getInstance(this) || new Modal(this, typeof config === 'object' ? config : {});
@@ -3035,14 +2976,12 @@
         data[config](relatedTarget);
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API$2, SELECTOR_DATA_TOGGLE$2, function (event) {
     const target = getElementFromSelector(this);
@@ -3131,7 +3070,6 @@
       this._addEventListeners();
     } // Getters
 
-
     static get NAME() {
       return NAME$5;
     }
@@ -3139,7 +3077,6 @@
     static get Default() {
       return Default$4;
     } // Public
-
 
     toggle(relatedTarget) {
       return this._isShown ? this.hide() : this.show(relatedTarget);
@@ -3233,7 +3170,6 @@
       EventHandler.off(document, EVENT_FOCUSIN$1);
     } // Private
 
-
     _getConfig(config) {
       config = { ...Default$4,
         ...Manipulator.getDataAttributes(this._element),
@@ -3272,7 +3208,6 @@
       });
     } // Static
 
-
     static jQueryInterface(config) {
       return this.each(function () {
         const data = Data.get(this, DATA_KEY$5) || new Offcanvas(this, typeof config === 'object' ? config : {});
@@ -3288,14 +3223,12 @@
         data[config](this);
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE$1, function (event) {
     const target = getElementFromSelector(this);
@@ -3559,7 +3492,6 @@
       this._setListeners();
     } // Getters
 
-
     static get Default() {
       return Default$3;
     }
@@ -3575,7 +3507,6 @@
     static get DefaultType() {
       return DefaultType$3;
     } // Public
-
 
     enable() {
       this._isEnabled = true;
@@ -3691,7 +3622,6 @@
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
-
       if ('ontouchstart' in document.documentElement) {
         [].concat(...document.body.children).forEach(element => {
           EventHandler.on(element, 'mouseover', noop);
@@ -3771,7 +3701,6 @@
       }
     } // Protected
 
-
     isWithContent() {
       return Boolean(this.getTitle());
     }
@@ -3845,7 +3774,6 @@
 
       return attachment;
     } // Private
-
 
     _initializeOnDelegatedTarget(event, context) {
       const dataKey = this.constructor.DATA_KEY;
@@ -4110,7 +4038,6 @@
       this._addAttachmentClass(this._getAttachment(state.placement));
     } // Static
 
-
     static jQueryInterface(config) {
       return this.each(function () {
         let data = Data.get(this, DATA_KEY$4);
@@ -4134,7 +4061,6 @@
         }
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
@@ -4142,7 +4068,6 @@
    * ------------------------------------------------------------------------
    * add .Tooltip to jQuery only if jQuery is present
    */
-
 
   defineJQueryPlugin(Tooltip);
 
@@ -4213,7 +4138,6 @@
       return DefaultType$2;
     } // Overrides
 
-
     isWithContent() {
       return this.getTitle() || this._getContent();
     }
@@ -4233,7 +4157,6 @@
       tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$2);
     } // Private
 
-
     _addAttachmentClass(attachment) {
       this.getTipElement().classList.add(`${CLASS_PREFIX}-${this.updateAttachment(attachment)}`);
     }
@@ -4250,7 +4173,6 @@
         tabClass.map(token => token.trim()).forEach(tClass => tip.classList.remove(tClass));
       }
     } // Static
-
 
     static jQueryInterface(config) {
       return this.each(function () {
@@ -4276,7 +4198,6 @@
         }
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
@@ -4284,7 +4205,6 @@
    * ------------------------------------------------------------------------
    * add .Popover to jQuery only if jQuery is present
    */
-
 
   defineJQueryPlugin(Popover);
 
@@ -4350,7 +4270,6 @@
       this._process();
     } // Getters
 
-
     static get Default() {
       return Default$1;
     }
@@ -4358,7 +4277,6 @@
     static get NAME() {
       return NAME$2;
     } // Public
-
 
     refresh() {
       const autoMethod = this._scrollElement === this._scrollElement.window ? METHOD_OFFSET : METHOD_POSITION;
@@ -4392,7 +4310,6 @@
       EventHandler.off(this._scrollElement, EVENT_KEY$2);
       super.dispose();
     } // Private
-
 
     _getConfig(config) {
       config = { ...Default$1,
@@ -4502,7 +4419,6 @@
       SelectorEngine.find(this._selector).filter(node => node.classList.contains(CLASS_NAME_ACTIVE$1)).forEach(node => node.classList.remove(CLASS_NAME_ACTIVE$1));
     } // Static
 
-
     static jQueryInterface(config) {
       return this.each(function () {
         const data = ScrollSpy.getInstance(this) || new ScrollSpy(this, typeof config === 'object' ? config : {});
@@ -4518,14 +4434,12 @@
         data[config]();
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
     SelectorEngine.find(SELECTOR_DATA_SPY).forEach(spy => new ScrollSpy(spy));
@@ -4583,7 +4497,6 @@
       return NAME$1;
     } // Public
 
-
     show() {
       if (this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && this._element.classList.contains(CLASS_NAME_ACTIVE)) {
         return;
@@ -4628,7 +4541,6 @@
         complete();
       }
     } // Private
-
 
     _activate(element, container, callback) {
       const activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.children(container, SELECTOR_ACTIVE);
@@ -4693,7 +4605,6 @@
       }
     } // Static
 
-
     static jQueryInterface(config) {
       return this.each(function () {
         const data = Data.get(this, DATA_KEY$1) || new Tab(this);
@@ -4707,14 +4618,12 @@
         }
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-
 
   EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     if (['A', 'AREA'].includes(this.tagName)) {
@@ -4793,7 +4702,6 @@
       this._setListeners();
     } // Getters
 
-
     static get DefaultType() {
       return DefaultType;
     }
@@ -4805,7 +4713,6 @@
     static get NAME() {
       return NAME;
     } // Public
-
 
     show() {
       const showEvent = EventHandler.trigger(this._element, EVENT_SHOW);
@@ -4871,7 +4778,6 @@
       super.dispose();
     } // Private
 
-
     _getConfig(config) {
       config = { ...Default,
         ...Manipulator.getDataAttributes(this._element),
@@ -4936,7 +4842,6 @@
       this._timeout = null;
     } // Static
 
-
     static jQueryInterface(config) {
       return this.each(function () {
         let data = Data.get(this, DATA_KEY);
@@ -4956,7 +4861,6 @@
         }
       });
     }
-
   }
   /**
    * ------------------------------------------------------------------------
@@ -4964,7 +4868,6 @@
    * ------------------------------------------------------------------------
    * add .Toast to jQuery only if jQuery is present
    */
-
 
   defineJQueryPlugin(Toast);
 
@@ -4990,6 +4893,5 @@
   };
 
   return index_umd;
-
 })));
 //# sourceMappingURL=bootstrap.js.map

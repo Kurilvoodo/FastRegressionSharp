@@ -186,7 +186,6 @@
     <Content Include="Views\User\Register.cshtml" />
     <Content Include="Views\User\Login.cshtml" />
     <Content Include="Views\Regression\GetRegressionModels.cshtml" />
-    <Content Include="Views\Regression\CountedForecast.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\PartialViews\_DisplayLinks.cshtml" />
     <Content Include="Views\Regression\Create.cshtml" />
@@ -200,6 +199,15 @@
     <Content Include="Scripts\bootstrap.bundle.js.map" />
     <Content Include="Views\Regression\QuickLineRegression.cshtml" />
     <Content Include="Views\Regression\QuickLineRegressionAnswer.cshtml" />
+    <Content Include="Views\PartialViews\_DisplayFunctionalTypeDropdownSelect.cshtml" />
+    <Content Include="Views\Regression\QuickExponentialRegression.cshtml" />
+    <Content Include="Views\Regression\QuickExponentialRegressionAnswer.cshtml" />
+    <Content Include="Views\Regression\QuickLogarithmicRegression.cshtml" />
+    <Content Include="Views\Regression\QuickLogarithmicRegressionAnswer.cshtml" />
+    <Content Include="Views\Regression\QuickSedateRegression.cshtml" />
+    <Content Include="Views\Regression\QuickSedateRegressionAnswer.cshtml" />
+    <Content Include="Views\Regression\CountForecast.cshtml" />
+    <Content Include="Views\Regression\CountedForecast.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

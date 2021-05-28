@@ -1,14 +1,14 @@
-﻿
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Index";
 }
 
 <h2>Welcome to Fast Regression Serivce Web Application!</h2>
-<p>@Html.ActionLink("Make a quick count", "QuickRegression", "Regression")</p>
+<p>@Html.ActionLink("Make a quick Line function", "QuickLineRegression", "Regression")</p>
+<p>@Html.ActionLink("Make a quick Exponential function", "QuickExponentialRegression", "Regression")</p>
+<p>@Html.ActionLink("Make a quick Logarithmic function", "QuickLogarithmicRegression", "Regression")</p>
+<p>@Html.ActionLink("Make a quick Sedate function", "QuickSedateRegression", "Regression")</p>
 @if (User.Identity != null && User.Identity.IsAuthenticated)
 {
-    @Html.Action("ShowLinksForAuthUser", "User")
+@Html.Action("ShowLinksForAuthUser", "User")
 }
-
-

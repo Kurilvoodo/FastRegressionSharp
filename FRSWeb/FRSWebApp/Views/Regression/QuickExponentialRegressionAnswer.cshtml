@@ -1,0 +1,57 @@
+﻿@model FRS.Entities.QuickRegression
+
+@{
+    ViewBag.Title = "QuickExponentialRegressionAnswer";
+}
+
+<h2>QuickExponentialRegressionAnswer</h2>
+
+<div>
+    <h4>QuickRegression</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.X)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.X)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yAnswer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yAnswer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Format)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Format)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
