@@ -40,7 +40,6 @@ namespace FRS.DAO
                         BFreeCoefficient = (double)(decimal)reader["BCoeff"],
                         UserId = (int)reader["RegressionOwnerId"],
                         RegressionDataId = (int)reader["Id"],
-                        //PrecisionError = (int)reader["PrecisionError"],
                         FunctionType = (FunctionType)(int)reader["FunctionType"]
                     };
                 }
@@ -64,7 +63,8 @@ namespace FRS.DAO
                         ACoefficientForX = (double)(decimal)reader["ACoeff"],
                         BFreeCoefficient = (double)(decimal)reader["BCoeff"],
                         UserId = (int)reader["RegressionOwnerId"],
-                        RegressionDataId = (int)reader["Id"]
+                        RegressionDataId = (int)reader["Id"],
+                        FunctionType = (FunctionType)(int)reader["FunctionType"]
                     });
                 }
                 return regressionDataList;
@@ -109,7 +109,7 @@ namespace FRS.DAO
             return regressionData;
         }
 
-        public void UpdateRegressionData(RegressionData data) // +
+        public void UpdateRegressionData(RegressionData data) 
         {
             using (var connection = new SqlConnection(_connectionString))
             {
